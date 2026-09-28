@@ -4,20 +4,20 @@ import numpy as np
 from PIL import Image, ImageDraw
 from tensorflow.keras.models import load_model
 
-# Load your trained MNIST model
+
 model = load_model("mnist_model.keras")
 
-# Canvas settings
+
 CANVAS_SIZE = 280
 BRUSH_SIZE = 20
 
-# Create application window
+
 root = tk.Tk()
 root.title("Handwritten Digit Recognition")
 root.geometry("420x550")
 root.resizable(False, False)
 
-# Drawing canvas
+
 canvas = tk.Canvas(
     root,
     width=CANVAS_SIZE,
@@ -27,11 +27,11 @@ canvas = tk.Canvas(
 )
 canvas.pack(pady=20)
 
-# PIL image stores the actual drawing
+
 image = Image.new("L", (CANVAS_SIZE, CANVAS_SIZE), 0)
 draw = ImageDraw.Draw(image)
 
-# Result display
+
 result_label = tk.Label(
     root,
     text="Draw a digit (0-9)",
@@ -46,8 +46,6 @@ confidence_label = tk.Label(
 )
 confidence_label.pack(pady=5)
 
-
-# Draw using mouse
 def start_draw(event):
     draw_digit(event)
 
@@ -56,25 +54,22 @@ def draw_digit(event):
     x, y = event.x, event.y
     r = BRUSH_SIZE // 2
 
-    # Draw on visible canvas
     canvas.create_oval(
         x-r, y-r, x+r, y+r,
         fill="white",
         outline="white"
     )
 
-    # Draw on PIL image
     draw.ellipse(
         [x-r, y-r, x+r, y+r],
         fill=255
     )
 
 
-# Preprocess drawing for MNIST
+
 def preprocess():
     img = image.copy()
 
-    # Find bounding box of digit
     bbox = img.getbbox()
 
     if bbox is None:
@@ -82,10 +77,9 @@ def preprocess():
 
     img = img.crop(bbox)
 
-    # Resize digit while preserving aspect ratio
+    
     img.thumbnail((20, 20), Image.Resampling.LANCZOS)
 
-    # Place digit at center of 28x28 image
     new_img = Image.new("L", (28, 28), 0)
 
     x = (28 - img.width) // 2
@@ -93,16 +87,15 @@ def preprocess():
 
     new_img.paste(img, (x, y))
 
-    # Normalize pixel values
+
     img_array = np.array(new_img).astype("float32") / 255.0
 
-    # Flatten for ANN input
     img_array = img_array.reshape(1, 784)
 
     return img_array
 
 
-# Predict digit
+
 def predict_digit():
     processed = preprocess()
 
@@ -125,7 +118,7 @@ def predict_digit():
     )
 
 
-# Clear canvas
+
 def clear_canvas():
     canvas.delete("all")
 
@@ -137,11 +130,9 @@ def clear_canvas():
     confidence_label.config(text="")
 
 
-# Mouse events
 canvas.bind("<Button-1>", start_draw)
 canvas.bind("<B1-Motion>", draw_digit)
 
-# Buttons
 button_frame = tk.Frame(root)
 button_frame.pack(pady=20)
 
