@@ -90,10 +90,10 @@ The trained Artificial Neural Network successfully performs handwritten digit cl
 
 | Metric        | Result                 |
 | ------------- | ---------------------- |
-| Test Accuracy | Add your actual result |
-| Precision     | Add your actual result |
-| Recall        | Add your actual result |
-| F1-score      | Add your actual result |
+| Test Accuracy |       97.60%           |
+| Precision     |       97.8%            |
+| Recall        |       97.8%            |
+| F1-score      |       97.8%            |
 
 ### Model Artifact
 
