@@ -1,18 +1,4 @@
-# AI-ML-RECRUITMENT-2026-LAKSHYA-CHOUDHARY-
 
-# Task 2: Neural Network – MNIST Handwritten Digit Classification
-
-## 1. Candidate Details
-
-| Field          | Details                                      |
-| -------------- | -------------------------------------------- |
-| Name           | Lakshya Choudhary                            |
-| Degree         | B.Tech Computer Science and Engineering      |
-| Specialization | Cloud Computing                              |
-| Institution    | SRM Institute of Science and Technology, KTR |
-| Recruitment    | AI/ML Recruitment 2026                       |
-
----
 
 ## 2. Task Completed
 
