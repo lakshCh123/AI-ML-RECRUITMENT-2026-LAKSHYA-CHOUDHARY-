@@ -1,15 +1,4 @@
 
-
-## 2. Task Completed
-
-**Task 2 – Neural Network: MNIST Handwritten Digit Classification**
-
-**Status: Completed**
-
-The task involved developing and training an Artificial Neural Network (ANN) to classify handwritten digits using the MNIST dataset. An interactive custom input interface was also developed to test the trained model using user-drawn digits.
-
----
-
 ## 3. Problem Statement
 
 The objective of this task was to develop and train an Artificial Neural Network (ANN) capable of recognizing handwritten digits from images.
